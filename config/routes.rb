@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
-  # get '/contents', 'contents#index'
-  # get 'contents/new', 'contents#new'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources 'quants'
+  resources 'general_sciences'
+  resources 'reasonings'
+  
   # Defines the root path route ("/")
-  # root "articles#index"
+  root "contents#index"
+
+  get '/redirect', to: 'contents#redirect', as: :url
+
 end

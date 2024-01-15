@@ -11,8 +11,8 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+  <body style="background: url('<%= image_url 'hero_section.png' %>'); background-repeat: no-repeat; background-color: RGB(199, 182, 0)">
+    <main class="container mx-auto mt-28 pl-20 pr-5 flex">
       <%= yield %>
     </main>
   </body>

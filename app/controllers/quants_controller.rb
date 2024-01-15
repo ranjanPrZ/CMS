@@ -8,18 +8,19 @@ class QuantsController < ApplicationController
   end
 
   def create
-    quant = Quant.new(quant_params)
-    if quant.save
-      redirect_to quants_url
-    else
-      render :new
-    end
+      quant = Quant.new(quant_params)
+      if quant.save
+        redirect_to quants_url
+      else
+        render :new
+      end
+    
   end
 
 
   private
 
   def quant_params
-    params.require(:quant).permit(:question, :optional_answers)
+    params.require(:quant).permit(:question, :optional_answers, :answer)
   end
 end
