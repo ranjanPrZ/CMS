@@ -1,4 +1,15 @@
-<div>
-  <h1 class="font-bold text-4xl">Reasonings#index</h1>
-  <p>Find me in app/views/reasonings/index.html.erb</p>
+<div class="w-screen max-h-full px-10 bg-white border border-gray-200 rounded-lg shadow sm:p-10 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+  <div class='w-full p-8'>
+  <ol>
+    <% @reasonings.each_with_index do |quant, index| %>
+      <li class= 'mb-3' style+>
+        <p> Question <%= index + 1 %>: <%= quant.question %> </p>
+        <p> Optional answer: <%= quant.optional_answers %> </p>
+        <p> Currect Answer: <%= quant.answer %> </p>
+      </li>
+    <% end %>
+  </ol>
+
+  <%= link_to "Add New question answer", new_quant_url, class: " border-1 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400" %>
+  </div>
 </div>

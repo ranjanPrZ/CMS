@@ -1,4 +1,39 @@
-<div>
-  <h1 class="font-bold text-4xl">GeneralSciences#new</h1>
-  <p>Find me in app/views/general_sciences/new.html.erb</p>
+<div class="w-screen max-h-full px-10 bg-white border border-gray-200 rounded-lg shadow sm:p-10 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+  <div class='w-full p-8'>
+    <p style='font-style: bold'> <strong>Add question and answer</strong> </p>
+
+    <%= form_for @general_science, url: "/general_sciences", method: "post" do |f| %>
+      <div class="space-y-18">
+        <div class="pb-15">
+          <div class="">
+            <div class="mt-5">
+              <%= f.label :question, "Question:", for: "question", class: "block text-sm font-medium leading-6 text-gray-900" %>
+              <div class="mt-2">
+                <%= f.text_area :question, size:20,  class: "block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400"%>
+              </div>
+            </div>
+
+            <div class="mt-5">
+              <%= f.label :optional_answers, "Optional answer:",for: "optional_answers", class: "block text-sm font-medium leading-6 text-gray-900" %>
+              <p style="color: #ba8c63; font-style: italic; my-2">Note: Format for optional answer : {'0' => 'option 1', '1' => 'option 2', '2' => 'option 3', '3' => 'option 4'}</p>
+              <div class="mt-2">
+                <%= f.text_area :optional_answers, size:200, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400" %>
+              </div>
+            </div>
+
+            <div class="mt-5">
+              <%= f.label :answer, "Currect Answer:",for: "answer", class: "block text-sm font-medium leading-6 text-gray-900" %>
+              <div class="mt-2">
+                <%= f.text_field :answer, size:200, class: " w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400" %>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <%= f.submit "Add", class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-10 mt-4 rounded-full self-center	' %>
+    <% end %>
+
+    <%= link_to "Home", root_url, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-10 mt-4 rounded-full self-center" %>
+
+  </div>
 </div>
