@@ -1,0 +1,30 @@
+<div style="background: url('<%= image_url 'learning_is_fun.png' %>'); background-repeat: no-repeat;" class="w-screen h-screen	p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+  <div class='w-full'>
+    <h2> Add question and answer here </h2>
+
+
+  <%= form_for @quant, url: "/quants", method: "post" do |f| %>
+
+
+    <div class="space-y-12">
+    <div class="border-b border-gray-900/10 pb-12">
+      <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+        <div class="sm:col-span-4">
+          <%= f.label :question, "Question:", for: "question", class: "block text-sm font-medium leading-6 text-gray-900" %>
+          <div class="mt-2">
+            <%= f.text_field :question,  class: "flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md"%>
+          </div>
+        </div>
+
+        <div class="col-span-full">
+          <%= f.label :answer, "Answer:",for: "answer", class: "block text-sm font-medium leading-6 text-gray-900" %>
+          <div class="mt-2">
+            <%= f.text_field :optional_answers, class: "block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" %>
+          </div>
+        </div>
+
+    <%= f.submit "Add" %>
+  <% end %>
+  </div>
+
+</div>

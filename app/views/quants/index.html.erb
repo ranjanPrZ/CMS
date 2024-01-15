@@ -1,0 +1,8 @@
+<ol>
+  <% @quants.each do |quant| %>
+    <li>
+      <p> Question: <%= quant.question %> </p>
+      <p> Answer: <%= quant.optional_answers %> </p>
+    </li>
+  <% end %>
+</ol>

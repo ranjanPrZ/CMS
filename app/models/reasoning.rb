@@ -1,0 +1,2 @@
+class Reasoning < Content
+end

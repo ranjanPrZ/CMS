@@ -1,0 +1,2 @@
+class GeneralScience < Content
+end
