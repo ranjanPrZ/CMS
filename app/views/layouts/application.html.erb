@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CRB</title>
+    <title>CMS</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,8 +11,8 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body style="background: url('<%= image_url 'hero_section.png' %>'); background-repeat: no-repeat; background-color: RGB(199, 182, 0)">
-    <main class="container mx-auto mt-28 pl-20 pr-5 flex">
+  <body style="background: url('<%= image_url 'hero_section.png' %>') no-repeat, linear-gradient(90deg, rgba(145,232,145,0.9262298669467787) 0%, rgba(253,187,45,1) 100%) center;">
+    <main class="container mx-auto mt-28 pl-20 flex">
         <%= yield %>
     </main>
   </body>
