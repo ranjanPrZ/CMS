@@ -1,6 +1,10 @@
 class GeneralSciencesController < ApplicationController
   def index
     @general_sciences = GeneralScience.all
+    respond_to do |format|
+      format.html
+      format.json { render json: @general_sciences }
+    end
   end
 
   def new

@@ -1,6 +1,10 @@
 class ReasoningsController < ApplicationController
   def index
     @reasonings = Reasoning.all
+    respond_to do |format|
+      format.html
+      format.json { render json: @reasonings }
+    end
   end
 
   def new

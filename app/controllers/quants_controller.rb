@@ -1,6 +1,10 @@
 class QuantsController < ApplicationController
   def index
     @quants = Quant.all
+    respond_to do |format|
+      format.html
+      format.json { render json: @quants }
+    end
   end
 
   def new
