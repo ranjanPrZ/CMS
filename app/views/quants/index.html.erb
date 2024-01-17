@@ -1,15 +1,16 @@
-<div class="w-screen max-h-full px-10 bg-white border border-gray-200 rounded-lg shadow sm:p-10 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-  <div class='w-full p-8'>
+<div class="w-full max-h-full px-10 bg-white border border-gray-200 rounded-lg shadow sm:p-10 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+  <div class=' p-8'>
   <ol>
     <% @quants.each_with_index do |quant, index| %>
       <li class= 'mb-3' style+>
         <p> Question <%= index + 1 %>: <%= quant.question %> </p>
         <p> Optional answer: <%= quant.optional_answers %> </p>
         <p> Currect Answer: <%= quant.answer %> </p>
+        <%= link_to "Edit", edit_quant_url(quant), class: "text-sky-400 py-1.5", style:"color: blue" %>
       </li>
     <% end %>
   </ol>
 
-  <%= link_to "Add New question answer", new_quant_url, class: " border-1 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400" %>
+  <%= link_to "Add New question answer", new_quant_url, style:"color: blue" %>
   </div>
 </div>

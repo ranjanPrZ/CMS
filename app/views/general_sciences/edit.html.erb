@@ -2,7 +2,7 @@
   <div class=' p-8'>
     <p style='font-style: bold'> <strong>Add question and answer</strong> </p>
 
-    <%= form_for @quant, url: "/quants", method: "post" do |f| %>
+    <%= form_for @general_science, url: "/general_sciences/#{@general_science.id}", method: "put" do |f| %>
       <div class="space-y-18">
         <div class="pb-15">
           <div class="">
@@ -26,15 +26,15 @@
               <div class="mt-2">
                 <%= f.text_field :answer, size:200, class: " w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400" %>
               </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <%= f.submit "Add", class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-10 mt-4 rounded-full self-center	' %>
-    <% end %>
+        <%= f.submit "Update", class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-10 mt-4 rounded-full self-center	' %>
+      <% end %>
 
-    <%= link_to "Question list", quants_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-10 mt-4 rounded-full self-center" %>
+    <%= link_to "Question list", general_sciences_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-10 mt-4 rounded-full self-center" %>
     <%= link_to "Home", root_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-10 mt-4 rounded-full self-center" %>
 
-    </div>
+  </div>
 </div>

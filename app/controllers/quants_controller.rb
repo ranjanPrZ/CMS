@@ -1,4 +1,6 @@
 class QuantsController < ApplicationController
+  before_action :current_quant, only: [:edit, :show, :update]
+
   def index
     @quants = Quant.all
     respond_to do |format|
@@ -25,10 +27,22 @@ class QuantsController < ApplicationController
     end
   end
 
+  def update
+    if @quant.update(quant_params)
+      redirect_to quants_url
+    else
+      render :edit
+    end
+  end
+
 
   private
 
   def quant_params
     params.require(:quant).permit(:question, :optional_answers, :answer, :type)
+  end
+
+  def current_quant
+    @quant = Quant.find(params['id'])
   end
 end
