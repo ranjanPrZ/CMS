@@ -12,8 +12,8 @@ class ReasoningsController < ApplicationController
   end
 
   def create
-      quant = Reasoning.new(quant_params)
-      if quant.save
+      reasoning = Reasoning.new(reasoning_params)
+      if reasoning.save
         redirect_to reasonings_url
       else
         render :new
@@ -24,7 +24,7 @@ class ReasoningsController < ApplicationController
 
   private
 
-  def quant_params
-    params.require(:reasoning).permit(:question, :optional_answers, :answer)
+  def reasoning_params
+    params.require(:reasoning).permit(:question, :optional_answers, :answer, :type)
   end
 end

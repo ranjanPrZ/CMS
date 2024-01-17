@@ -12,8 +12,8 @@ class GeneralSciencesController < ApplicationController
   end
 
   def create
-      quant = GeneralScience.new(quant_params)
-      if quant.save
+      general_science = GeneralScience.new(general_science_params)
+      if general_science.save
         redirect_to general_sciences_url
       else
         render :new
@@ -24,7 +24,7 @@ class GeneralSciencesController < ApplicationController
 
   private
 
-  def quant_params
-    params.require(:general_science).permit(:question, :optional_answers, :answer)
+  def general_science_params
+    params.require(:general_science).permit(:question, :optional_answers, :answer, :type)
   end
 end

@@ -29,6 +29,6 @@ class QuantsController < ApplicationController
   private
 
   def quant_params
-    params.require(:quant).permit(:question, :optional_answers, :answer)
+    params.require(:quant).permit(:question, :optional_answers, :answer, :type)
   end
 end
