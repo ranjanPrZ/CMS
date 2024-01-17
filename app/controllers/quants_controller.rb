@@ -17,6 +17,7 @@ class QuantsController < ApplicationController
     begin
       quant = Quant.new(quant_params)
       if quant.save
+        flash[:success] = "New question added successfully!"
         redirect_to quants_url
       else
         render :new
@@ -28,10 +29,16 @@ class QuantsController < ApplicationController
   end
 
   def update
-    if @quant.update(quant_params)
-      redirect_to quants_url
-    else
-      render :edit
+    begin
+      if @quant.update(quant_params)
+        flash[:success] = "Updated successfully!!!"
+        redirect_to quants_url
+      else
+        render :edit
+      end
+    rescue => e
+      flash[:error] = "An error occurred: #{e.message}"
+      redirect_to root_url
     end
   end
 

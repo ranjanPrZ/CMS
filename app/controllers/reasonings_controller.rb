@@ -14,22 +14,34 @@ class ReasoningsController < ApplicationController
   end
 
   def create
+    begin
       reasoning = Reasoning.new(reasoning_params)
       if reasoning.save
+        flash[:success] = "New question added successfully"
         redirect_to reasonings_url
       else
         render :new
       end
+    rescue => e
+      flash[:error] = "An error occurred: #{e.message}"
+      redirect_to root_url
+    end
   end
 
 
   def edit; end
 
   def update
-    if @reasoning.update(reasoning_params)
-      redirect_to reasonings_url
-    else
-      render :edit
+    begin
+      if @reasoning.update(reasoning_params)
+        flash[:success] = "Updated successfully!!!"
+        redirect_to reasonings_url
+      else
+        render :edit
+      end
+    rescue => e
+      flash[:error] = "An error occurred: #{e.message}"
+      redirect_to root_url
     end
   end
 

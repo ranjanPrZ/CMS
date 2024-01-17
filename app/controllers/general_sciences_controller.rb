@@ -14,20 +14,30 @@ class GeneralSciencesController < ApplicationController
   end
 
   def create
+    begin
       general_science = GeneralScience.new(general_science_params)
       if general_science.save
         redirect_to general_sciences_url
       else
         render :new
       end
-    
+    rescue => e
+      flash[:error] = "An error occurred: #{e.message}"
+      redirect_to root_url
+    end
   end
 
   def update
-    if @general_science.update(quant_params)
-      redirect_to general_sciences_url
-    else
-      render :edit
+    begin
+      if @general_science.update(quant_params)
+        flash[:success] = "Updated successfully!!!"
+        redirect_to general_sciences_url
+      else
+        render :edit
+      end
+    rescue => e
+      flash[:error] = "An error occurred: #{e.message}"
+      redirect_to root_url
     end
   end
 
