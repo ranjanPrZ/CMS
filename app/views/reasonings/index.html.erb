@@ -1,5 +1,5 @@
-<div class="w-full max-h-full px-10 bg-white border border-gray-200 rounded-lg shadow sm:p-10 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-  <div class='p-8'>
+<div class="w-full max-h-full px-10 bg-white border border-gray-200 rounded-lg shadow sm:p-10 md:p-8 dark:bg-gray-800 dark:border-gray-700 inline-flex">
+  <div class='p-8' style="width: 80%">
     <% if flash[:success] %>
       <div class="flash_alelrt bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
         <span class="block sm:inline"><%= flash[:success] %></span>
@@ -20,7 +20,10 @@
       <% end %>
     </ol>
 
-    <%= link_to "Add New question answer", new_reasoning_url, class: "py-1.5 text-sky-400", style:"color: blue" %>
+    <%= paginate @reasonings %>
+  </div>
+  <div style="width: 20%">
+    <%= link_to "Add New question answer", new_reasoning_url, style:"color: blue" %>
   </div>
 </div>
 

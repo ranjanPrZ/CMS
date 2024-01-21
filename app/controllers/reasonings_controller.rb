@@ -2,7 +2,7 @@ class ReasoningsController < ApplicationController
   before_action :current_reasoning, only: [:edit, :show, :update]
 
   def index
-    @reasonings = Reasoning.all
+    @reasonings = Reasoning.page(params[:page].to_i).per(10)
     respond_to do |format|
       format.html
       format.json { render json: @reasonings }

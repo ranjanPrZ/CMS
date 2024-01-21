@@ -2,7 +2,9 @@ class GeneralSciencesController < ApplicationController
   before_action :current_general_science, only: [:edit, :show, :update]
 
   def index
-    @general_sciences = GeneralScience.all
+    @general_sciences = GeneralScience.page(params[:page].to_i).per(10)
+    Rails.logger.info ">>>>>>>>>>>>>>> #{@general_sciences.inspect}"
+
     respond_to do |format|
       format.html
       format.json { render json: @general_sciences }
@@ -17,6 +19,7 @@ class GeneralSciencesController < ApplicationController
     begin
       general_science = GeneralScience.new(general_science_params)
       if general_science.save
+        flash[:success] = "Added successfully!!!"
         redirect_to general_sciences_url
       else
         render :new

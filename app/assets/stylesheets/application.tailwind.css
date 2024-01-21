@@ -11,3 +11,12 @@
 }
 
 */
+
+.pagination {
+  .next, .last, .first, .prev, .page {
+    color: #0b64e9 !important;
+  }
+  .page.current{
+    color: #020a16 !important;
+  }
+}
