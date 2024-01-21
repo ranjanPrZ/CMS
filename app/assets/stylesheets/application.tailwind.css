@@ -29,8 +29,17 @@ ul {
   width: 80%;
 }
 
+.left_container {
+  h2, li {
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.17);
+    min-height: 2rem;
+    padding: 6px 8px;  
+  }
+}
+
 .right_container {
   width: 20%;
+  padding: 5px 0px;
 }
 
 
@@ -40,6 +49,8 @@ ul {
   padding: 6px;
   background: #c8c8d3;
   border-radius: 6px;
+  margin-left: 3rem;
+  box-shadow: 5px 5px 4px 0 rgba(46,54,46,1.17);
 }
 
 .subject_type {
