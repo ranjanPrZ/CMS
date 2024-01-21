@@ -1,5 +1,5 @@
 <div class="w-full max-h-full px-10 bg-white border border-gray-200 rounded-lg shadow sm:p-10 md:p-8 dark:bg-gray-800 dark:border-gray-700 inline-flex">
-  <div class='p-8' style="width: 80%">
+  <div class="left_container">
     <% if flash[:success] %>
       <div class="flash_alelrt bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
         <span class="block sm:inline"><%= flash[:success] %></span>
@@ -12,7 +12,9 @@
       </div>
     <% end %>
 
-    <ol>
+    <p> <strong>GeneralScience questions: </strong></p>
+    <hr>
+    <ul>
       <% @general_sciences.each_with_index do |quant, index| %>
         <li class= 'mb-3'>
           <p> Question <%= index + 1 %>: <%= quant.question %> </p>
@@ -21,12 +23,12 @@
           <%= link_to "Edit", edit_general_science_url(quant), class: "text-sky-400 py-1.5", style:"color: blue" %>
         </li>
       <% end %>
-    </ol>
+    </ul>
 
     <%= paginate @general_sciences %>
   </div>
-  <div style="width: 20%">
-    <%= link_to "Add New question answer", new_general_science_url, style:"color: blue" %>
+  <div class="right_container">
+    <%= link_to "Add a new question", new_general_science_url, class: "add_new_content" %>
   </div>
 </div>
 

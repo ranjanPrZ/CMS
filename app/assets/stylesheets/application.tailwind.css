@@ -20,3 +20,31 @@
     color: #020a16 !important;
   }
 }
+
+ul {
+  padding: 3rem 10px;
+}
+
+.left_container {
+  width: 80%;
+}
+
+.right_container {
+  width: 20%;
+}
+
+
+.add_new_content {
+  color: blue;
+  border: 1px solid blue;
+  padding: 6px;
+  background: #c8c8d3;
+  border-radius: 6px;
+}
+
+.subject_type {
+  color: black;
+  border: 1px solid #87a0d1;
+  border-radius: 10px;
+  padding: 9px 80px;
+}
