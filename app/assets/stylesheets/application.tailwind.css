@@ -12,6 +12,12 @@
 
 */
 
+main {
+  box-shadow: 0 5px 4px 5px rgba(46,54,46,1.17);
+  border-radius: 12px;
+  margin-bottom: 5rem !important;
+}
+
 .pagination {
   .next, .last, .first, .prev, .page {
     color: #0b64e9 !important;
@@ -58,4 +64,29 @@ ul {
   border: 1px solid #87a0d1;
   border-radius: 10px;
   padding: 9px 80px;
+}
+
+/* Mobile screen styles */ 
+@media only screen and (max-device-width: 600px){
+  main {
+    margin: 2rem !important;
+    padding: 1rem !important;
+    width: 100%;
+
+    div {
+      padding: 0px !important;
+    }
+  }
+
+  .left_container {
+    width: 90%;
+  }
+
+  .right_container {
+    width: 10%;
+  }
+
+  .add_new_content {
+    display: none !important;
+  }
 }

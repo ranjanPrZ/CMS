@@ -17,7 +17,7 @@
     <ul>
       <% @quants.each_with_index do |quant, index| %>
         <li class= 'mb-3'>
-          <p> Question <%= index + 1 %>: <%= quant.question %> </p>
+          <p> <strong>Q<%= index + 1 %></strong>: <%= quant.question %> </p>
           <p> Optional answer: <%= quant.optional_answers %> </p>
           <p> Currect Answer: <%= quant.answer %> </p>
           <%= link_to "Edit", edit_quant_url(quant), class: "text-sky-400 py-1.5", style:"color: blue" %>
@@ -34,6 +34,6 @@
 
 <script>
   setTimeout(function() {
-    document.getElementsByClassName("flash_alelrt")[0].remove();
+    document.getElementsByClassName("flash_alelrt")[0]?.remove();
   }, 3000);
 </script>
