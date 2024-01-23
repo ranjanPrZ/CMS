@@ -1,11 +1,13 @@
 class QuantsController < ApplicationController
   before_action :current_quant, only: [:edit, :show, :update]
+  include SubjectTypeConstant
 
   DEFAULT_PAGE = 1
 
   def index
     @quants = Quant.page(params[:page].to_i).per(8)
-    Rails.logger.info ">>>>>>>>>>>>>>> #{params.inspect}"
+    @urls = SUB_TYPE
+
     respond_to do |format|
       format.html
       format.json { render json: @quants }
