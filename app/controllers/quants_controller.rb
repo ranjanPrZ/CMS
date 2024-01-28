@@ -5,7 +5,7 @@ class QuantsController < ApplicationController
   DEFAULT_PAGE = 1
 
   def index
-    @quants = Quant.page(params[:page].to_i).per(8)
+    @quants = Quant.page(params[:page].to_i).per(10)
     @urls = SUB_TYPE
 
     respond_to do |format|
