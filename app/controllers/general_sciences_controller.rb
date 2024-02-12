@@ -1,10 +1,9 @@
 class GeneralSciencesController < ApplicationController
   before_action :current_general_science, only: [:edit, :show, :update]
-  include SubjectTypeConstant
 
   def index
     @general_sciences = GeneralScience.page(params[:page].to_i).per(10)
-    @urls = SUB_TYPE
+    Rails.logger.info ">>>>>>>>>>>>>>> #{@general_sciences.inspect}"
 
     respond_to do |format|
       format.html
