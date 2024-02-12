@@ -1,8 +1,11 @@
 class ReasoningsController < ApplicationController
   before_action :current_reasoning, only: [:edit, :show, :update]
+  include SubjectTypeConstant
 
   def index
     @reasonings = Reasoning.page(params[:page].to_i).per(10)
+    @urls = SUB_TYPE
+
     respond_to do |format|
       format.html
       format.json { render json: @reasonings }

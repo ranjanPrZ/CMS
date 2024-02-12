@@ -1,11 +1,8 @@
 class ContentsController < ApplicationController
+
+  include SubjectTypeConstant
   def index
-    @urls = [
-      { name: 'Select contents type', url: ''},
-      { name: 'Maths', url: quants_url },
-      { name: 'Reasoning', url: reasonings_url },
-      { name: 'General Science', url: general_sciences_url },
-    ]
+    @urls = SUB_TYPE
   end
 
   # def redirect

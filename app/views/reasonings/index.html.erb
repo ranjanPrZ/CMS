@@ -27,7 +27,7 @@
     <%= link_to "Add a new question", new_reasoning_url, class: "add_new_content" %>
 
     <%= form_tag(root_path, method: 'get', id: 'url-form', class:"rounded-lg text-sm px-5 py-2.5 text-center me-2 mt-2") do %>
-      <%= select_tag 'url', options_for_select(@urls.map { |u| [u[:name], u[:url]] }), onchange: 'submitForm(this)', class: 'change_page' %>
+      <%= select_tag 'url', options_for_select(@urls.map { |u| [u[:name], u[:url]] }), onchange: 'submitForm(this)' %>
     <% end %>
   </div>
 </div>
@@ -36,4 +36,10 @@
   setTimeout(function() {
     document.getElementsByClassName("flash_alelrt")[0].remove();
   }, 3000);
+
+
+  function submitForm(select) {
+    var selectedUrl = select.options[select.selectedIndex].value;
+    window.location.href = selectedUrl;
+  }
 </script>
