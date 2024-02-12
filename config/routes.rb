@@ -9,4 +9,6 @@ Rails.application.routes.draw do
 
   get '/redirect', to: 'contents#redirect', as: :url
 
+  # DataImport paths
+  resources :data_imports, only: [:new, :create]
 end
