@@ -1,5 +1,6 @@
-class ContentsController < ApplicationController
+# frozen_string_literal: true
 
+class ContentsController < ApplicationController
   include SubjectTypeConstant
   def index
     @urls = SUB_TYPE

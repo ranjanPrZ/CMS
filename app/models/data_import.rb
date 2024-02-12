@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DataImport < ApplicationRecord
   has_one_attached :xlsx_file
 

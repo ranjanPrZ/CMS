@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class GeneralSciencesController < ApplicationController
-  before_action :current_general_science, only: [:edit, :show, :update]
+  before_action :current_general_science, only: %i[edit show update]
   include SubjectTypeConstant
 
   def index
@@ -17,32 +19,28 @@ class GeneralSciencesController < ApplicationController
   end
 
   def create
-    begin
-      general_science = GeneralScience.new(general_science_params)
-      if general_science.save
-        flash[:success] = "Added successfully!!!"
-        redirect_to general_sciences_url
-      else
-        render :new
-      end
-    rescue => e
-      flash[:error] = "An error occurred: #{e.message}"
-      redirect_to root_url
+    general_science = GeneralScience.new(general_science_params)
+    if general_science.save
+      flash[:success] = 'Added successfully!!!'
+      redirect_to general_sciences_url
+    else
+      render :new
     end
+  rescue StandardError => e
+    flash[:error] = "An error occurred: #{e.message}"
+    redirect_to root_url
   end
 
   def update
-    begin
-      if @general_science.update(quant_params)
-        flash[:success] = "Updated successfully!!!"
-        redirect_to general_sciences_url
-      else
-        render :edit
-      end
-    rescue => e
-      flash[:error] = "An error occurred: #{e.message}"
-      redirect_to root_url
+    if @general_science.update(quant_params)
+      flash[:success] = 'Updated successfully!!!'
+      redirect_to general_sciences_url
+    else
+      render :edit
     end
+  rescue StandardError => e
+    flash[:error] = "An error occurred: #{e.message}"
+    redirect_to root_url
   end
 
   private

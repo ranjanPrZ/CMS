@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DataImportsController < ApplicationController
   def new
     @data_import = DataImport.new
@@ -7,10 +9,10 @@ class DataImportsController < ApplicationController
     @data_import = DataImport.new(data_import_params)
 
     if @data_import.save
-      flash[:success] = "Data imported successfully!"
+      flash[:success] = 'Data imported successfully!'
       redirect_to root_path
     else
-      flash.now[:error] = "Error importing data."
+      flash.now[:error] = 'Error importing data.'
       render :new
     end
   end

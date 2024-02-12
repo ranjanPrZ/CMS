@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class QuantsController < ApplicationController
-  before_action :current_quant, only: [:edit, :show, :update]
+  before_action :current_quant, only: %i[edit show update]
   include SubjectTypeConstant
 
   DEFAULT_PAGE = 1
@@ -19,34 +21,29 @@ class QuantsController < ApplicationController
   end
 
   def create
-    begin
-      quant = Quant.new(quant_params)
-      if quant.save
-        flash[:success] = "New question added successfully!"
-        redirect_to quants_url
-      else
-        render :new
-      end
-    rescue => e
-      flash[:error] = "An error occurred: #{e.message}"
-      redirect_to root_url
+    quant = Quant.new(quant_params)
+    if quant.save
+      flash[:success] = 'New question added successfully!'
+      redirect_to quants_url
+    else
+      render :new
     end
+  rescue StandardError => e
+    flash[:error] = "An error occurred: #{e.message}"
+    redirect_to root_url
   end
 
   def update
-    begin
-      if @quant.update(quant_params)
-        flash[:success] = "Updated successfully!!!"
-        redirect_to quants_url
-      else
-        render :edit
-      end
-    rescue => e
-      flash[:error] = "An error occurred: #{e.message}"
-      redirect_to root_url
+    if @quant.update(quant_params)
+      flash[:success] = 'Updated successfully!!!'
+      redirect_to quants_url
+    else
+      render :edit
     end
+  rescue StandardError => e
+    flash[:error] = "An error occurred: #{e.message}"
+    redirect_to root_url
   end
-
 
   private
 
