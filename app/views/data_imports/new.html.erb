@@ -1,0 +1,10 @@
+<%= form_with(url: import_data_path, local: true, multipart: true) do |form| %>
+  <div>
+    <%= form.label :xlsx_file %>
+    <%= form.file_field :xlsx_file %>
+  </div>
+
+  <div>
+    <%= form.submit "Upload File" %>
+  </div>
+<% end %>

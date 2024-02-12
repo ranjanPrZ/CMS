@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_17_115715) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_12_062733) do
   create_table "contents", force: :cascade do |t|
     t.string "question"
     t.string "optional_answers"
@@ -19,6 +19,11 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_17_115715) do
     t.datetime "updated_at", null: false
     t.integer "content_type"
     t.string "type"
+  end
+
+  create_table "data_imports", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
