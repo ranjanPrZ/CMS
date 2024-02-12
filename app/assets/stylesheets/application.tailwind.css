@@ -50,13 +50,11 @@ ul {
 
 
 .add_new_content {
-  color: blue;
+  color: rgb(3, 3, 39);
   border: 1px solid blue;
-  padding: 6px;
-  background: #c8c8d3;
-  border-radius: 6px;
-  margin-left: 3rem;
-  box-shadow: 5px 5px 4px 0 rgba(46,54,46,1.17);
+  border-radius: 10px;
+  padding: 0.6em 2em;
+  margin: 0em 2em;
 }
 
 .subject_type {
@@ -64,6 +62,11 @@ ul {
   border: 1px solid #87a0d1;
   border-radius: 10px;
   padding: 9px 80px;
+}
+
+.add_new_content, .change_page {
+  border-radius: 7px;
+  box-shadow: 2px 2px 2px 2px rgba(122,154,246,1.17);
 }
 
 /* Mobile screen styles */ 

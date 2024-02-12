@@ -4,8 +4,9 @@ class QuantsController < ApplicationController
   DEFAULT_PAGE = 1
 
   def index
-    @quants = Quant.page(params[:page].to_i).per(8)
-    Rails.logger.info ">>>>>>>>>>>>>>> #{params.inspect}"
+    @quants = Quant.page(params[:page].to_i).per(10)
+    @urls = SUB_TYPE
+
     respond_to do |format|
       format.html
       format.json { render json: @quants }
