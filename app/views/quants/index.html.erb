@@ -33,6 +33,15 @@
     <%= form_tag(root_path, method: 'get', id: 'url-form', class:"rounded-lg text-sm px-5 py-2.5 text-center me-2 mt-2") do %>
       <%= select_tag 'url', options_for_select(@urls.map { |u| [u[:name], u[:url]] }), onchange: 'submitForm(this)' %>
     <% end %>
+
+    <%= form_with(url: data_imports_path, local: true, multipart: true) do |form| %>
+      <div>
+        <%= form.label :xlsx_file, "Select Excel File (.xlsx) for Bulk Upload" %>
+        <%= form.file_field :xlsx_file %>
+
+        <%= form.submit "Submit",class: "add_new_content" %>
+      </div>
+    <% end %>    
   </div>
 </div>
 
